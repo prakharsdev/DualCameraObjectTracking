@@ -1,0 +1,14 @@
+This approach can be used in self driving car. Self-driving cars often use multiple cameras to sense their environment, and use the data from these cameras to make decisions about how to control the car. In this case, the object we want to track is a vehicle that is ahead of the self-driving car.
+
+Here's an example of how the pipeline could be used:
+
+1. The car is equipped with two cameras mounted at a 90-degree angle on the front of the vehicle.
+2. The cameras are used to capture video footage of the road ahead.
+3. The pipeline is used to track a red vehicle in the footage. This is done by first converting the frames to the HSV color space and then thresholding the frames to obtain a binary mask of pixels that are red
+4. The pipeline then uses the Kanade-Lucas-Tomasi (KLT) algorithm to track the keypoints( the red vehicle) in both videos.
+5. The pipeline then aligns the frames of the two videos in time, based on the tracked keypoints
+6. The pipeline then uses the aligned frames to track the red vehicle in both videos, by defining a region of interest around the red vehicle in one of the videos and then searching for the red vehicle in the aligned frames of the other video.
+7. The pipeline uses stereo camera calibration, to calculate the relative position and orientation of the two cameras and use triangulation to find the 3D position of the red vehicle.
+8. This data can then be used to make a decision about how the self-driving car should control its speed and trajectory to avoid the red vehicle.
+
+This is just one use case of how dual camera object tracking could be used, but this technology can be used in many other fields such as robotics, surveillance, and sports analysis and many more.
